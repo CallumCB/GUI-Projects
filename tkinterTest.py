@@ -40,6 +40,9 @@ def clearWindow():
 
 def happyTurtle():
     pen=turtle.Turtle()
+    turtle.clearscreen()
+    pen.speed(0)
+    pen.pensize(6)
     def eye(col, rad):
         pen.down()
         pen.fillcolor(col)
@@ -72,6 +75,9 @@ def happyTurtle():
 
 def sadTurtle():
     pen=turtle.Turtle()
+    turtle.clearscreen()
+    pen.speed(0)
+    pen.pensize(6)
     def eye(col, rad):
         pen.down()
         pen.fillcolor(col)
@@ -101,8 +107,95 @@ def sadTurtle():
     pen.right(90)
     pen.circle(40, -180)
     pen.up()
-    
+def catTurtle():
+    turtle.clearscreen()
+    t = turtle.Turtle()
+    t.speed(0)
+    t.pensize(8)
+    t.penup()
+    t.goto(0,-108)
+    t.pendown()
 
+    # draw head 
+    for i in range(36):
+        t.forward(30)
+        t.left(10)
+
+    # draw eyes
+    t.penup()
+    t.goto(-80,90)
+    t.pendown()
+
+    t.left(90)
+    for i in range(45):
+        t.forward(2)
+        t.right(4)
+
+    t.penup()
+    t.goto(50,90)
+    t.pendown()
+
+    t.left(-180)
+    for i in range(45):
+        t.forward(2)
+        t.right(4)
+
+    # draw nose 
+    t.penup()
+    t.goto(0,50)
+    t.pendown()
+
+    t.setheading(0)
+
+    for i in range(5): 
+        t.forward(25)
+        t.right(120)
+    starting_nose_x = t.xcor()
+    starting_nose_y = t.ycor()
+
+    #draw mouth
+    t.left(120)
+    t.forward(10)
+    for i in range(4):
+
+        t.right(16)
+        t.forward(17)
+
+    t.penup()
+    t.goto(starting_nose_x, starting_nose_y)
+    t.pendown()
+    t.setheading(-60)
+
+    t.forward(10)
+    for i in range(4):
+        t.left(16)
+        t.forward(17)
+
+    t.penup()
+    t.goto(-19, -.10) 
+    t.pendown()
+    t.right(100)
+    for i in range(10):
+        t.forward(12)
+        t.left(21)
+
+    t.penup()
+    t.goto(114, 212) 
+    t.pendown()
+    t.forward(100)
+    t.left(120)
+    t.forward(75)
+
+    t.penup()
+    t.goto(-107, 193)
+    t.pendown()
+    t.setheading(75)
+    t.forward(100)
+    t.right(120)
+    t.forward(75)
+    t.ht()
+def clearTurtle():
+    turtle.clearscreen()
 def week1():
     clearWindow()
     
@@ -176,8 +269,13 @@ def week3():
     B2W3.grid(column = 1, row=3)
 
     B3W3 = Button(text = "Main menu", bg = 'yellow', command = mainMenu)
-    B3W3.grid(column = 1, row = 4)
-    
+    B3W3.grid(column = 1, row = 6)
+
+    B4W3 = Button(text = "Cat", bg = 'pink', command = catTurtle)
+    B4W3.grid(column = 1, row = 4)
+
+    B5W3 = Button(text = "Clear", bg = 'white', command = clearTurtle)
+    B5W3.grid(column = 1, row = 5)
 if __name__ == "__main__":
     mainMenu()
     top.mainloop()
